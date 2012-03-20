@@ -9,3 +9,8 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 RSpec.configure do |config|
   
 end
+
+def create_class(class_name, superclass, &block)
+  klass = Class.new superclass, &block
+  Object.const_set class_name, klass
+end

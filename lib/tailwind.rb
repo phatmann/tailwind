@@ -1,1 +1,1 @@
-require 'thing'
+require 'thing/thing.rb'
