@@ -2,7 +2,14 @@
 
 Create applications by stating what things are involved and how they should behave and interact. Treat the web as a delivery mechanism and not the starting point.
 
-Inspired by Robert Martin's "Architecture the Lost Years" talk (Ruby Midwest 2011)
+Inspired by Robert Martin's "Architecture the Lost Years" talk (Ruby Midwest 2011).
+
+This gem has just been started up and there is not much here yet.
+
+TODO:
+
+* Get Thing specs to pass by implementing Thing, and possibly a testing persistence layer
+* Get Thing features to pass by implementing a testing presentation layer
 
 == Contributing to tailwind
  
