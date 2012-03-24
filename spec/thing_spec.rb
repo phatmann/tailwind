@@ -4,22 +4,22 @@ require 'tailwind/thing.rb'
 module Tailwind
   describe Thing do
     context "with properties" do
-      PROPS = [:prop1, :prop2]
+      PROP_NAMES = [:prop1, :prop2]
 
       class ThingWithProperties < Thing
-        maintains *PROPS
+        maintains *PROP_NAMES
       end
 
-      subject { ThingWithProperties.new }
+      let(:thing)          { ThingWithProperties.new }
+      let(:property_names) { ThingWithProperties.properties.map(&:name) }
 
       it "should know what properties it maintains" do
-        subject.properties.map(&:name).should             == PROPS
-        ThingWithProperties.properties.map(&:name).should == PROPS
+        property_names.should == PROP_NAMES
       end
 
       it "should allow property to be accessed" do
-        subject.prop1 = "value"
-        subject.prop1.should == "value"
+        thing.prop1 = "value"
+        thing.prop1.should == "value"
       end
 
       it "should isolate properties to the class" do
@@ -28,8 +28,8 @@ module Tailwind
         end
 
         thing2 = ThingWithProperties2.new
-        subject.properties.map(&:name).should   == PROPS
-        thing2.properties.map(&:name).should    == [:prop3]
+        property_names.should == PROP_NAMES
+        ThingWithProperties2.properties.map(&:name).should  == [:prop3]
       end
 
       it "should know what properties are required"

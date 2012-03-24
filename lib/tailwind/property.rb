@@ -3,7 +3,7 @@ module Tailwind
     attr_accessor :name
     attr_accessor :required
 
-    def initialize(name, opts = {})
+    def initialize(name, opts = nil)
       @name = name
 
       if opts.is_a?(Hash)
